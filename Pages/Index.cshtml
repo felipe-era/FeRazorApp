@@ -1,0 +1,39 @@
+﻿@page
+@using FeRazorApp.Pages;
+@model FeRazorApp.Pages.IndexModel
+@{
+    <!DOCTYPE html>
+    <html>
+    <head>
+
+    </head>
+    <body>
+        <div>
+            <table>
+                <thread>
+                    <tr>
+                        <td>ID</td>
+                        <td>Title</td>
+                        <td>Price </td>
+                    <tr>
+                </thread>
+                <tbody>
+                @foreach (var Category in Model.Categories)
+                    {
+                        <tr>
+                            <td>@Category.Id</td>
+                            <td>@Category.Title</td>
+                            <td>@Category.Price</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+    </html>
+
+
+
+
+}
