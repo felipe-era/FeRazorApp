@@ -1,5 +1,6 @@
 ﻿@page
 @using FeRazorApp.Pages;
+@using System.Globalization;
 @model FeRazorApp.Pages.IndexModel
 @{
     <!DOCTYPE html>
@@ -9,6 +10,18 @@
     </head>
     <body>
         <div>
+            <ul>
+                <li>
+                    <a href="~/">Home</a>
+                </li>
+                <li>
+                    <a href="~/About">Sobre</a>
+                </li>
+                <li>
+                    <a href="~/Login">Login</a>
+                </li>
+            </ul>
+            <h1>Categorias</h1>
             <table>
                 <thread>
                     <tr>
@@ -18,12 +31,12 @@
                     <tr>
                 </thread>
                 <tbody>
-                @foreach (var Category in Model.Categories)
+                    @foreach (var Category in Model.Categories)
                     {
                         <tr>
                             <td>@Category.Id</td>
                             <td>@Category.Title</td>
-                            <td>@Category.Price</td>
+                            <td>@Category.Price.ToString(format:"C", provider:new CultureInfo(name:"pt-BR"))</td>
                         </tr>
                     }
                 </tbody>
