@@ -1,4 +1,5 @@
 ﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @using FeRazorApp.Pages;
 @using System.Globalization;
 @model FeRazorApp.Pages.IndexModel
@@ -6,28 +7,18 @@
     <!DOCTYPE html>
     <html>
     <head>
-
+        <partial name="NavMenuPartial" /> @*
+        @* @Html.Partial("Shared/NavMenuPartial") *@
     </head>
     <body>
         <div>
-            <ul>
-                <li>
-                    <a href="~/">Home</a>
-                </li>
-                <li>
-                    <a href="~/About">Sobre</a>
-                </li>
-                <li>
-                    <a href="~/Login">Login</a>
-                </li>
-            </ul>
             <h1>Categorias</h1>
             <table>
                 <thread>
                     <tr>
                         <td>ID</td>
                         <td>Title</td>
-                        <td>Price </td>
+                        <td>Price</td>
                     <tr>
                 </thread>
                 <tbody>
@@ -36,17 +27,12 @@
                         <tr>
                             <td>@Category.Id</td>
                             <td>@Category.Title</td>
-                            <td>@Category.Price.ToString(format:"C", provider:new CultureInfo(name:"pt-BR"))</td>
+                            <td>@Category.Price.ToString(format: "C", provider: new CultureInfo(name: "pt-BR"))</td>
                         </tr>
                     }
                 </tbody>
             </table>
         </div>
-
     </body>
     </html>
-
-
-
-
 }
