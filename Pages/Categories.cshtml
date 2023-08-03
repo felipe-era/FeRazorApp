@@ -1,0 +1,25 @@
+﻿@page
+@model FeRazorApp.Pages.CategoriesModel
+@{
+}
+
+<h1>Categorias</h1>
+<table>
+    <thread>
+        <tr>
+            <td>ID</td>
+            <td>Title</td>
+            <td>Price</td>
+        <tr>
+    </thread>
+    <tbody>
+        @foreach (var Category in Model.CategoryList)
+        {
+            <tr>
+                <td>@Category.Id</td>
+                <td>@Category.Title</td>
+                <td>@Category.Price.ToString(format: "C", provider: new CultureInfo(name: "pt-BR"))</td>
+            </tr>
+        }
+    </tbody>
+</table>
