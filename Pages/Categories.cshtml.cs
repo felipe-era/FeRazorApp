@@ -6,7 +6,7 @@ public class CategoriesModel : PageModel
 
     public List<Category> CategoryList { get; set; } = new();
 
-    public void OnGet(int skip, int take)
+    public void OnGet(int skip = 0, int take = 25)
     {
         var lstAuxCategory = new List<Category>();
         //await Task.Delay(5000);

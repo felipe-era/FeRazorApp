@@ -3,6 +3,8 @@
 <html>
 <head>
     <title>@ViewData["Title"] - FeRazorApp </title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/FeRazorApp.styles.css" asp-append-version="true">
 </head>
 <body>
     <header>
@@ -12,6 +14,10 @@
     <main> 
         @RenderBody()
     </main>
+    <footer>
+        2023 - Powered by FelipeDev
+    </footer>
+    @RenderSection(name:"scripts", required:false)
 </body>
 </html>
 
