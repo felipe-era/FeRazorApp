@@ -22,6 +22,11 @@ public class CreateModel : PageModel
 
     public async Task<IActionResult> OnPost(Category category)
     {
+        if (Category.Name == Category.DisplayOrder.ToString())
+        {
+            //ModelState.AddModelError(string.Empty, "DisplayOrder e Nomes não podem ser iguais");
+            ModelState.AddModelError(Category.Name, "DisplayOrder e Nomes não podem ser iguais");
+        }
         if (ModelState.IsValid)
         {
             await _db.Category.AddAsync(category);
