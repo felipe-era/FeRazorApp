@@ -26,15 +26,13 @@ public class DeleteModel : PageModel
 
     public async Task<IActionResult> OnPost(Category category)
     {
-        if (Category.Name == Category.DisplayOrder.ToString())
+        var categoryFromDb = _db.Category.Find(Category.Id);
+        if (categoryFromDb != null)
         {
-            ModelState.AddModelError(Category.Name, "DisplayOrder e Nomes não podem ser iguais");
-        }
-        if (ModelState.IsValid)
-        {
-            _db.Category.Update(category);
+            _db.Category.Remove(categoryFromDb);
             await _db.SaveChangesAsync();
             return RedirectToPage("Index");
+
         }
         return Page();
     }
