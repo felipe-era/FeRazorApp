@@ -35,25 +35,34 @@
                         </li>
 
                         @if (SignInManager.IsSignedIn(User))
-                            {
-                                <ul class="navbar-nav flex-grow-1">
-                                    <li class="nav-item">
-                                        <a class="nav-link" asp-area="" asp-page="/Login/Register">Exibe após logar (;</a>
-                                    </li>
-                                </ul>
-                            }
-                            else
-                            {
-                                <ul class="navbar-nav d-flex justify-content-end flex-grow-1">
-                                    <li class="nav-item">
-                                        <a asp-page="/Login" class="btn btn-primary">Login1</a>
-                                    </li>
-                                    <li>
-                                        <a asp-page="/Login" class="btn">Register1</a>
-                                    </li>
+                        {
+                            <ul class="navbar-nav flex-grow-1">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Login/Index">Home</a>
+                                </li>
 
-                                </ul>
-                            }
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-page="/Login/Register">Exibe após logar (;</a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li class="navbar-nav d-flex justify-content-end">
+                                    <a class="btn btn-primary" asp-area="" asp-page="/Login/Logout">Logout</a>
+
+                                </li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <ul class="navbar-nav d-flex justify-content-end flex-grow-1">
+                                <li class="nav-item">
+                                    <a asp-page="/Login" class="btn btn-primary">Login1</a>
+                                </li>
+                                <li>
+                                    <a asp-page="/Login" class="btn">Register1</a>
+                                </li>
+                            </ul>
+                        }
                     </ul>
                 </div>
             </div>

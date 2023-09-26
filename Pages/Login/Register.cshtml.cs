@@ -21,9 +21,8 @@ public class RegisterModel : PageModel
     public void OnGet()
     {
     }
-
-    public async Task<IActionResult>OnPostAsync()
-    { 
+    public async Task<IActionResult> OnPostAsync()
+    {
         if (ModelState.IsValid)
         {
             var user = new IdentityUser()
@@ -32,22 +31,22 @@ public class RegisterModel : PageModel
                 Email = Model.Email
             };
 
-            var result = userManager.CreateAsync(user, Model.Password);
-            if (result.IsCompletedSuccessfully)//verificar outras opções do result. (succeded?)
+            var result = await userManager.CreateAsync(user, Model.Password);
+
+            if (result.Succeeded)
             {
                 await signInManager.SignInAsync(user, isPersistent: false);
                 return RedirectToPage("Index");
             }
-
-            foreach (var error in result.Result.Errors)
+            else
             {
-                ModelState.AddModelError("", error.Description);
-
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("erros:> ", error.Description);
+                }
             }
-
         }
 
         return Page();
-
     }
 }
