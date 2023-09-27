@@ -2,3 +2,31 @@
 @model FeRazorApp.Pages.Login.LoginModel
 @{
 }
+
+<div class="container mt-5">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-12 col-md-12 col-lg-4">
+            <h1 class="mb-3">Login</h1>
+
+            <form method="post">
+                <div class="mb-3">
+                    <label class="form-label" asp-for="Model.Email">Endereço do Email</label>
+                    <input class="text" asp-for="Model.Email" class="form-control">
+                    <span asp-validation-for="Model.Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="Model.Password">Senha</label>
+                    <input class="text" asp-for="Model.Password" class="form-control">
+                    <span asp-validation-for="Model.Password" class="text-danger"></span>
+                </div>
+                <div class="mb-3 form-check">
+                    <input class="checkbox" asp-for="Model.RememberMe" class="form-check-input">
+                    <label class="form-check-label" asp-for="Model.RememberMe">Esqueci</label>
+                    <span asp-validation-for="Model.RememberMe" class="text-danger"></span>
+                </div>
+                <div class="mb-3 form-check">
+                    <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
