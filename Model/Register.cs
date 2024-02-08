@@ -12,7 +12,7 @@ namespace FeRazorApp.Model
         public string Password { get; set; }
         [Required]
         [DataType(DataType.Password)]
-        [Compare(nameof(Password), ErrorMessage = "The Password não batem")]
+        [Compare(nameof(Password), ErrorMessage = "As senhas estão diferentes")]
         public string ConfirmPassword { get; set; }
 
 
